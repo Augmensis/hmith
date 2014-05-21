@@ -1,15 +1,17 @@
 <div align="center">
 <h1>How Much Is That House?</h1>
-  <img alt="House image goes here" align="center" src=<%= Zoopla.find_local_property_image("WR24JH") %> />
+  <% Zoopla.find_local_properties("WR24JH") %>
+  <img alt="House image goes here" align="center" src=<%= Zoopla.find_local_property_image %> />
   <br/>
-<button>Price 1</button><br/>
-  
-<button>Price 2</button><br/>
-<button>Price 3</button><br/>
-  
+
+<div align="center">
+  <%= button_tag "£#{Zoopla.find_local_property_price}", class:"btn btn-lg btn-primary" %><br/>
+  <%= button_tag "£#{Zoopla.calculate_random_price}", class:"btn btn-lg btn-primary"  %><br/>
+  <%= button_tag "£#{Zoopla.calculate_random_price}", class:"btn btn-lg btn-primary"  %><br/>
+</div>
   <br/>
   <a href="http://www.zoopla.co.uk/"><img src="http://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla.png" width="111" height="54" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0"></a>
 </div>
   
-<% Zoopla.find_local_properties("WR24JH") %>
-<% Zoopla.find_local_property_image("WR24JH") %>
+
+
