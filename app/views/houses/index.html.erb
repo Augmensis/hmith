@@ -5,9 +5,9 @@
   <br/>
 
 <div align="center">
-  <%= button_tag "£#{Zoopla.find_local_property_price}", class:"btn btn-lg btn-primary" %><br/>
-  <%= button_tag "£#{Zoopla.calculate_random_price}", class:"btn btn-lg btn-primary"  %><br/>
-  <%= button_tag "£#{Zoopla.calculate_random_price}", class:"btn btn-lg btn-primary"  %><br/>
+  <%= button_tag "£#{number_with_delimiter(Zoopla.find_local_property_price)}", class:"btn btn-lg btn-primary" %><br/>
+  <%= button_tag "£#{number_with_delimiter(Zoopla.calculate_random_price)}", class:"btn btn-lg btn-primary"  %><br/>
+  <%= button_tag "£#{number_with_delimiter(Zoopla.calculate_random_price)}", class:"btn btn-lg btn-primary"  %><br/>
 </div>
   <br/>
   <a href="http://www.zoopla.co.uk/"><img src="http://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla.png" width="111" height="54" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0"></a>
