@@ -4,18 +4,19 @@ class Zoopla
   base_uri 'api.zoopla.co.uk/api/v1/'
   default_params :output => 'json', :api_key => '4zygpw9taptacn88vwkrvtka', :radius => 5, :page_size => @pagesize, :listing_status => "sale", :minimum_price => 100000, :maximum_price => 10000000
   format :json
-  
-  @pagesize
-  
+ 
   
   def self.find_local_properties(postcode)
     @property_id = Random.rand(0...(@pagesize-1))
-    response = get('property_listings.json', :query => {:postcode => postcode})
-    if response.success?
-      @property_data = response
-    else
-      raise response.response
+    if @property_data == nil
+      response = get('property_listings.json', :query => {:postcode => postcode})
+      if response.success?
+        @property_data = response
+      else
+        response.body
+      end
     end
+     @property_data
   end
   
   def self.find_local_property_image
